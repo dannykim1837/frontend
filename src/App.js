@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import InvoicePage from './components/InvoicePage';
 import ExpensePage from './components/ExpensePage';
 import RegisterPage from './components/Auth/RegisterPage';
+import Profile from './components/Auth/Profile';
 import './styles/siteStyle.css';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/invoices" element={<InvoicePage />} />
         <Route path="/expenses" element={<ExpensePage />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
