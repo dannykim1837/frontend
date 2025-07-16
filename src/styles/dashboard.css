@@ -1,0 +1,222 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6f6fa 40%, #e4eef5 100%);
+    font-family: 'Inter', 'Pretendard', system-ui, sans-serif;
+}
+
+.top-nav {
+    width: 100vw;
+    background: #3A59D1;;
+    color: #fff;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.09);
+    padding: 0 4vw;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', 'Pretendard', system-ui, sans-serif;
+    z-index: 100;
+    position: relative;
+}
+
+.top-nav .logo {
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    user-select: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links li a,
+.nav-links li button {
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 1.08rem;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background 0.18s;
+}
+
+.nav-links li a:hover,
+.nav-links li button:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.dashboard-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6f6fa 40%, #e4eef5 100%);
+    padding: 0;
+    font-family: 'Inter', 'Pretendard', system-ui, sans-serif;
+}
+
+.dashboard-main {
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 4px 28px rgba(34, 51, 84, 0.06);
+    padding: 40px 3vw 60px 3vw;
+}
+
+.summary-charts {
+    display: flex;
+    gap: 2vw;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.chart-box {
+    flex: 1 1 0;
+    min-width: 320px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 14px rgba(34, 51, 84, 0.09);
+    padding: 32px 28px 26px 28px;
+    display: flex;
+    flex-direction: column;
+    min-height: 340px;
+    position: relative;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.chart-box:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 6px 28px rgba(34, 51, 84, 0.14);
+}
+
+.chart-box h4 {
+    margin: 0 0 15px 0;
+    font-size: 1.24rem;
+    font-weight: 700;
+}
+
+.invoice-chart-wrapper {
+  min-height: 200px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expense-chart-wrapper {
+    margin-bottom: 22px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-box p {
+    color: #486198;
+    font-size: 1.05rem;
+    margin-top: auto;
+}
+
+.upload-section {
+    margin-top: 32px;
+    background: #f6f8fb;
+    border-radius: 14px;
+    padding: 36px 22px 26px 22px;
+    box-shadow: 0 1px 8px rgba(34, 51, 84, 0.06);
+}
+
+.export-buttons {
+    margin: 22px 0 0 0;
+    display: flex;
+    gap: 18px;
+}
+
+.export-buttons button {
+    padding: 9px 22px;
+    background: linear-gradient(90deg, #385ad0 60%, #7ac6d2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 1px 8px rgba(34, 51, 84, 0.07);
+    transition: box-shadow 0.18s, transform 0.15s;
+}
+
+.export-buttons button:hover {
+    box-shadow: 0 3px 14px rgba(58, 89, 209, 0.16);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.stat-cards {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 2.5rem;
+    margin-top: 16px;
+  }
+  .stat-card {
+    flex: 1 1 0;
+    background: #f8fbfe;
+    border-radius: 14px;
+    box-shadow: 0 1px 7px rgba(34,51,84,0.07);
+    padding: 22px 18px 18px 22px;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    transition: box-shadow 0.16s, transform 0.13s;
+  }
+  .stat-card:hover {
+    box-shadow: 0 4px 20px rgba(34,51,84,0.13);
+    transform: translateY(-4px) scale(1.025);
+  }
+  .stat-main {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #385ad0;
+    line-height: 1.1;
+  }
+  .stat-label {
+    color: #8b98b7;
+    font-size: 1.06rem;
+    margin-top: 7px;
+    letter-spacing: -0.02em;
+  }
+  
+
+@media (max-width: 900px) {
+    .dashboard-main {
+        padding: 32px 4vw 50px 4vw;
+    }
+
+    .summary-charts {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .chart-box {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-main {
+        padding: 18px 1vw 24px 1vw;
+        margin-top: 24px;
+        border-radius: 10px;
+    }
+
+    .upload-section {
+        padding: 16px 7px 12px 7px;
+        border-radius: 8px;
+    }
+}
