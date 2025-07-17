@@ -2,6 +2,9 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #f6f6fa 40%, #e4eef5 100%);
     font-family: 'Inter', 'Pretendard', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .top-nav {
@@ -17,16 +20,30 @@ body {
     font-family: 'Inter', 'Pretendard', system-ui, sans-serif;
     z-index: 100;
     position: relative;
+    box-sizing: border-box;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 12px;
 }
 
 .nav-links {
     display: flex;
     gap: 30px;
     align-items: center;
-}
-
-.nav-links li {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li a,
@@ -39,17 +56,24 @@ body {
     padding: 8px 20px;
     border-radius: 6px;
     transition: background 0.18s;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-links li a:hover,
 .nav-links li button:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--color-secondary);
+    color: var(--color-primary);
 }
 
 .dashboard-root {
     min-height: 100vh;
     background: linear-gradient(135deg, #f6f6fa 40%, #e4eef5 100%);
     padding: 0;
+    box-sizing: border-box;
 }
 
 .page-header {
@@ -69,32 +93,38 @@ body {
 
 .dashboard-main {
     max-width: 1200px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto 60px auto;
     background: #fff;
     border-radius: 22px;
     box-shadow: 0 4px 28px rgba(34, 51, 84, 0.06);
     padding: 40px 3vw 60px 3vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Summary Cards */
 .stat-cards {
     display: flex;
     gap: 28px;
     margin-bottom: 2.5rem;
     margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .stat-card {
-    flex: 1 1 0;
+    flex: 1 1 250px;
     background: #f8fbfe;
     border-radius: 14px;
     box-shadow: 0 1px 7px rgba(34, 51, 84, 0.07);
     padding: 22px 18px 18px 22px;
-    min-width: 120px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
     transition: box-shadow 0.16s, transform 0.13s;
+    min-width: 120px;
 }
 
 .stat-card:hover {
@@ -116,15 +146,17 @@ body {
     letter-spacing: -0.02em;
 }
 
+/* Summary Charts */
 .summary-charts {
     display: flex;
     gap: 2vw;
     margin-bottom: 40px;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .chart-box {
-    flex: 1 1 0;
+    flex: 1 1 320px;
     min-width: 320px;
     background: #fff;
     border-radius: 18px;
@@ -146,30 +178,19 @@ body {
     margin: 0 0 15px 0;
     font-size: 1.24rem;
     font-weight: 700;
+    color: #385ad0;
 }
 
-.invoice-chart-wrapper {
-    min-height: 200px;
-    margin-bottom: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+.invoice-chart-wrapper,
 .expense-chart-wrapper {
-    margin-bottom: 22px;
     min-height: 200px;
+    margin-bottom: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.chart-box p {
-    color: #486198;
-    font-size: 1.05rem;
-    margin-top: auto;
-}
-
+/* Responsive Adjustments */
 @media (max-width: 900px) {
     .dashboard-main {
         padding: 32px 4vw 50px 4vw;
@@ -186,11 +207,62 @@ body {
     }
 }
 
-@media (max-width: 600px) {
-    .dashboard-main {
-        padding: 18px 1vw 24px 1vw;
-        margin-top: 24px;
-        border-radius: 10px;
+/* 모바일 레이아웃 */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #3A59D1;
+        flex-direction: column;
+        gap: 0;
+        z-index: 1000;
+        box-shadow: 0 3px 14px rgba(34, 51, 84, 0.07);
+        max-height: 100vh;
+        overflow-y: auto;
+        transition: max-height 0.3s ease-in-out;
+        padding: 0;
+        display: none;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li,
+    .nav-links li a {
+        width: 100%;
+        padding: 18px 24px;
+        font-size: 1.2rem;
+        border-radius: 0;
+        justify-content: flex-start;
+        color: #fff;
+    }
+
+    .stat-cards {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .stat-card {
+        flex: 1 1 45vw;
+        min-width: auto;
+    }
+
+    .summary-charts {
+        flex-direction: column;
+        gap: 32px;
+        justify-content: center;
+    }
+
+    .chart-box {
+        min-width: auto;
+        width: 90vw;
+        margin: 0 auto;
     }
 }
-

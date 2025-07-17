@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { saveToken } from '../utils/auth';
-import { useNavigate, Link } from 'react-router-dom'; // ✅ Link 추가
-import '../styles/siteStyle.css';
+import { useNavigate, Link } from 'react-router-dom';
+import '../styles/loginStyle.css';
 
 const Login = () => {
     const [form, setForm] = useState({ username: '', password: '' });
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -18,6 +18,10 @@ const Login = () => {
             console.error('Login Error:', err);
             alert('Login failed. Check credentials.');
         }
+    };
+
+    const toggleShowPassword = () => {
+        setShowPassword((prev) => !prev);
     };
 
     return (
@@ -42,7 +46,7 @@ const Login = () => {
                     className="form-text-input"
                     id="password"
                     name="password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="********"
                     value={form.password}
                     onChange={e => setForm({ ...form, password: e.target.value })}
@@ -54,14 +58,12 @@ const Login = () => {
                         <input
                             className="show-password"
                             type="checkbox"
-                            onClick={() => {
-                                const input = document.getElementById('password');
-                                input.type = input.type === 'password' ? 'text' : 'password';
-                            }}
+                            checked={showPassword}
+                            onChange={toggleShowPassword}
                         />
                         Show Password
                     </label>
-                    <a className="fake-link" href="#">Forgot password?</a>
+                    <Link className="fake-link" to="/password-reset">Forgot password?</Link>
                 </div>
 
                 <button className="form-button" type="submit">Sign In</button>
